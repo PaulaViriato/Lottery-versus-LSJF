@@ -23,6 +23,7 @@ int main (int argc, char *argv[]){
 	printf("***************************************\n");
 
 	int algo=0, type=0, step=0, prio, proc=0, time=0, i;
+	int random_time, random_prio;
 
 	while ((algo < 1)||(algo > 3)){
 		printf("ALGO: ");
@@ -54,16 +55,18 @@ int main (int argc, char *argv[]){
 
 	if (type == 5){
 		for (i=0; i < proc; i++){
-			if ((algo == 1)||(algo == 3)){ lottery_insert (time, 1+rand()%5); }
-			if ((algo == 2)||(algo == 3)){ lsjf_insert (time, 1+rand()%5); }
+            random_prio = 1+rand()%5;
+			if ((algo == 1)||(algo == 3)){ lottery_insert (time, random_prio); }
+			if ((algo == 2)||(algo == 3)){ lsjf_insert (time, random_prio); }
 		}
 
 		if ((algo == 1)||(algo == 3)){ __lottey ("test_lottery.txt", step); }
 		if ((algo == 2)||(algo == 3)){ __lsjf ("test_lsjf.txt", prio, step); }
 
 		for (i=0; i < proc; i++){
-			if ((algo == 1)||(algo == 3)){ lottery_insert (1+rand()%time, 1); }
-			if ((algo == 2)||(algo == 3)){ lsjf_insert (1+rand()%time, 1); }
+            random_time = 1+rand()%time;
+			if ((algo == 1)||(algo == 3)){ lottery_insert (random_time, 1); }
+			if ((algo == 2)||(algo == 3)){ lsjf_insert (random_time, 1); }
 		}
 
 		if ((algo == 1)||(algo == 3)){ __lottey ("test_lottery.txt", step); }
@@ -78,24 +81,27 @@ int main (int argc, char *argv[]){
 		if ((algo == 2)||(algo == 3)){ __lsjf ("test_lsjf.txt", prio, step); }
 
 		for (i=0; i < proc; i++){
-			if ((algo == 1)||(algo == 3)){ lottery_insert (1+rand()%time, 1+rand()%5); }
-			if ((algo == 2)||(algo == 3)){ lsjf_insert (1+rand()%time, 1+rand()%5); }
+            random_time = 1+rand()%time; random_prio = 1+rand()%5;
+			if ((algo == 1)||(algo == 3)){ lottery_insert (random_time, random_prio); }
+			if ((algo == 2)||(algo == 3)){ lsjf_insert (random_time, random_prio); }
 		}
 
 		if ((algo == 1)||(algo == 3)){ __lottey ("test_lottery.txt", step); }
 		if ((algo == 2)||(algo == 3)){ __lsjf ("test_lsjf.txt", prio, step); }
 	} else if (type == 1) {
 		for (i=0; i < proc; i++){
-			if ((algo == 1)||(algo == 3)){ lottery_insert (time, 1+rand()%5); }
-			if ((algo == 2)||(algo == 3)){ lsjf_insert (time, 1+rand()%5); }
+            random_prio = 1+rand()%5;
+			if ((algo == 1)||(algo == 3)){ lottery_insert (time, random_prio); }
+			if ((algo == 2)||(algo == 3)){ lsjf_insert (time, random_prio); }
 		}
 
 		if ((algo == 1)||(algo == 3)){ __lottey ("test_lottery.txt", step); }
 		if ((algo == 2)||(algo == 3)){ __lsjf ("test_lsjf.txt", prio, step); }
 	} else if (type == 2){
 		for (i=0; i < proc; i++){
-			if ((algo == 1)||(algo == 3)){ lottery_insert (1+rand()%time, 1); }
-			if ((algo == 2)||(algo == 3)){ lsjf_insert (1+rand()%time, 1); }
+            random_time = 1+rand()%time;
+			if ((algo == 1)||(algo == 3)){ lottery_insert (random_time, 1); }
+			if ((algo == 2)||(algo == 3)){ lsjf_insert (random_time, 1); }
 		}
 
 		if ((algo == 1)||(algo == 3)){ __lottey ("test_lottery.txt", step); }
@@ -110,8 +116,9 @@ int main (int argc, char *argv[]){
 		if ((algo == 2)||(algo == 3)){ __lsjf ("test_lsjf.txt", prio, step); }
 	} else if (type == 4){
 		for (i=0; i < proc; i++){
-			if ((algo == 1)||(algo == 3)){ lottery_insert (1+rand()%time, 1+rand()%5); }
-			if ((algo == 2)||(algo == 3)){ lsjf_insert (1+rand()%time, 1+rand()%5); }
+            random_time = 1+rand()%time; random_prio = 1+rand()%5;
+			if ((algo == 1)||(algo == 3)){ lottery_insert (random_time, random_prio); }
+			if ((algo == 2)||(algo == 3)){ lsjf_insert (random_time, random_prio); }
 		}
 
 		if ((algo == 1)||(algo == 3)){ __lottey ("test_lottery.txt", step); }
