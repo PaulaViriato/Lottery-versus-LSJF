@@ -1,7 +1,4 @@
-# Lottery-versus-LSJF
-Código comparativo entre o Lottery Scheduler e o LSJF Scheduler (Lottery with SJF)
-
-Sistemas Operacionais 2018.1
+﻿Sistemas Operacionais 2018.1
 
 Relatório Final
 
@@ -20,14 +17,13 @@ O intuito deste trabalho é a implementação de um algoritmo para ser usado com
 
 2. Abordagem
 
-Usaremos a versão 4.15.0-20 do kernel do Linux no Ubuntu  18.04 LTS por ser uma das mais recentes versões estáveis.
-Utilizados os códigos disponibilizados pela plataforma GitHub de desenvolvimento compartilhado para a versão dita acima (Ubuntu Bionic)².
-Os códigos relacionados à parte de escalonamento do kernel linux são agrupados no diretório sched, e portanto nosso trabalho será restringido à este diretório, composto por 25 arquivos em C, sendo o principal o core.c.
-Os códigos criados se encontram no repositório: 
+* Usaremos a versão 4.15.0-20 do kernel do Linux no Ubuntu  18.04 LTS por ser uma das mais recentes versões estáveis.
+* Utilizados os códigos disponibilizados pela plataforma GitHub de desenvolvimento compartilhado para a versão dita acima (Ubuntu Bionic)².
+* Os códigos relacionados à parte de escalonamento do kernel linux são agrupados no diretório sched, e portanto nosso trabalho será restringido à este diretório, composto por 25 arquivos em C, sendo o principal o core.c.
+* Os códigos criados se encontram no repositório: 
 https://github.com/PaulaViriato/Lottery-versus-LSJF
 
 3. Desenvolvimento
-
 Embora o Linux implemente várias formas diferentes de escalonamento, ele não possui nativamente as formas de escalonamento que são de interesse para este trabalho. O primeiro passo então foi a criação dos módulos que fazem Lottery Scheduler e Shortest Job First.
 A ideia para a criação do LSJF é atribuir mais tickets para os trabalhos mais curtos que fossem identificados. Os trabalhos mais curtos são identificados pela quantidade de slots de tempo de processamento que faltam para terminar. 
 O sistema operacional também atribui prioridades às tarefas, e quanto maior prioridade, maior o número de tickets dados àquela tarefa. Assim, tarefas de menor tamanho tem mais prioridade e são privilegiados pelo escalonador LSFJ, apesar de que processos maiores também possuirem probabilidade de serem escolhidos.
@@ -83,7 +79,7 @@ O trabalho foi desenvolvido com muita dificuldade, não houve nada simples sobre
 Mesmo com todas as adversidades, a experiência mostrou as complicações de modificar um sistema operacional, que é extremamente complexo. O trabalho pôde ser feito e os resultados alcançados foram extremamente bons, considerando que o grupo tinha nenhuma experiência na área. 
 Foi interessante juntar caraterísticas de políticas diferentes em um novo escalonador, que possui diferentes prioridades. A característica do LSJF de juntar aleatoriedade com algumas prioridades levou a um escalonador com boas propriedades e rendimento.
         
-7. Referências
+Referências
 
 [1] Linux Programmer's Manual . Disponível em: <https://manpages.debian.org/jessie/manpages/sched.7.en.html>
 [2] Repositório da Versão Linux Ubuntu Bionic (18.04). Disponível em: <http://kernel.ubuntu.com/git/ubuntu/ubuntu-bionic.git/>
